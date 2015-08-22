@@ -12,7 +12,7 @@ CREATE TABLE codepoints(
 conn = sqlite3.connect('codepoints.sqlite')
 c = conn.cursor()
 c.execute(create)
-for cid in xrange(0x10ffff, 0x110000):
+for cid in xrange(0x30000):
     hid = hex(cid)[2:]
     url = 'http://www.fileformat.info/info/unicode/char/{}/svg.svg'.format(hid)
     svg = None
