@@ -29,6 +29,12 @@ for filename in glob.iglob('./result/*'):
             title = m.group(2)
             raise FoundItException()
 
+        m = re.match('^01-01- #(\d{4}) (.+)$', base)
+        if m:
+            shownum = m.group(1)
+            title = m.group(2)
+            raise FoundItException()
+
         m = re.match('^Car Talk #(\d{4}) - (.+)$', base)
         if m:
             shownum = m.group(1)
