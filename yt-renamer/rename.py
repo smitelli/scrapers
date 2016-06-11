@@ -24,8 +24,12 @@ for filename in glob.iglob('./input/*'):
         else:
             template = '%(uploader_id)s - %(title)s.%(ext)s'
 
-        new_name = subprocess.check_output([
-            'youtube-dl', '-s', '--get-filename', '-o', template, url])
+        try:
+            new_name = subprocess.check_output([
+                'youtube-dl', '-s', '--get-filename', '-o', template, url])
+        except Exception:
+            print 'Video is gone.'
+            break
 
         newname = './output/{0}'.format(new_name.strip())
 
